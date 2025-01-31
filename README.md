@@ -9,7 +9,7 @@
 ![](static/screenshot.png)
 
 ## ✨ Features
-- 🕒 VPS Ubuntu 22.04 temporal (1h) o persistente (con registro)
+- 🕒 VPS Ubuntu 24.04 temporal (1h) o persistente (con registro)
 - 🖥️ Terminal web interactiva (ttyd)
 - 🔐 Autenticación opcional
 - 🧹 Limpieza automática de contenedores
@@ -17,7 +17,7 @@
 
 ## 🚀 Instalación
 ```bash
-git clone https://github.com/tuusuario/Docklify.git
+git clone https://github.com/Ivangabriel21210/Docklify.git
 cd Docklify
 
 # Instalar dependencias
