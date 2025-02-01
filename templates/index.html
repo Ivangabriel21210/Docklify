@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Free VPS Temporal</title>
+    <style>
+        body { 
+            background: #0d1117; 
+            color: #c9d1d9; 
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        .hero {
+            margin: 100px auto;
+            max-width: 800px;
+            padding: 40px;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+        }
+        .btn {
+            background: #238636;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn.secondary {
+            background: #1f6feb;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        .notice {
+            margin-top: 30px;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>🚀 Free VPS Temporal</h1>
+        <p>Usa una VPS gratis por 1 hora o registrate para mantenerla permanentemente</p>
+        
+        <button class="btn" onclick="createVPS()">Crear VPS Gratis (1 hora)</button>
+        <br>
+        <button class="btn secondary" onclick="window.location='/register'">Registrarte para VPS Permanente</button>
+        
+        <div class="notice">
+            ¿Ya tienes cuenta? <a href="/login" style="color: #58a6ff;">Iniciar sesión</a>
+        </div>
+    </div>
+
+    <script>
+        async function createVPS() {
+            const btn = document.querySelector('.btn');
+            btn.disabled = true;
+            btn.innerHTML = '🚀 Creando VPS...';
+            
+            try {
+                const response = await fetch('/create-vps', {method: 'POST'});
+                const data = await response.json();
+                
+                if(data.status === 'success') {
+                    window.location.href = data.terminal_url;
+                }
+            } catch(error) {
+                alert('Error: ' + error.message);
+                btn.disabled = false;
+                btn.innerHTML = 'Crear VPS Gratis (1 hora)';
+            }
+        }
+    </script>
+</body>
+</html>

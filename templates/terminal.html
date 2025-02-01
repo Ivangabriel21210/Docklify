@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terminal</title>
+    <style>
+        body { margin: 0; overflow: hidden; background: #000; }
+        iframe { 
+            width: 100vw; 
+            height: 100vh; 
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe 
+        src="http://{{ request.host.split(':')[0] }}:{{ port }}" 
+        sandbox="allow-forms allow-modals allow-pointer-lock allow-popups allow-same-origin allow-scripts"
+    ></iframe>
+</body>
+</html>

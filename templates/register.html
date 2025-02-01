@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro</title>
+    <style>
+        body { background: #0d1117; color: #c9d1d9; font-family: Arial, sans-serif; }
+        .container { max-width: 400px; margin: 100px auto; padding: 20px; border: 1px solid #30363d; border-radius: 5px; }
+        input { width: 100%; padding: 10px; margin: 10px 0; background: #161b22; border: 1px solid #30363d; color: white; }
+        button { background: #238636; color: white; padding: 10px 20px; border: none; border-radius: 5px; width: 100%; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registro</h2>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Registrarse</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a href="/login" style="color: #58a6ff;">Iniciar sesión</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body { background: #0d1117; color: #c9d1d9; font-family: 'Courier New', monospace; }
+        .container { max-width: 800px; margin: 50px auto; text-align: center; }
+        .btn { 
+            background: #238636; 
+            color: white; 
+            padding: 15px 30px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .user-info { position: absolute; top: 20px; right: 20px; color: #58a6ff; }
+    </style>
+</head>
+<body>
+    <div class="user-info">
+        {% if username %}
+            Usuario: {{ username }} | <a href="/logout" style="color: #ff5858;">Cerrar sesión</a>
+        {% else %}
+            <a href="/login" style="color: #58a6ff;">Iniciar sesión</a> | <a href="/register" style="color: #58a6ff;">Registrarse</a>
+        {% endif %}
+    </div>
+    
+    <div class="container">
+        <h1>🖥️ Tu VPS Privado</h1>
+        <p>{% if username %}Tu contenedor permanecerá activo mientras estés conectado{% else %}Sesión Temporal (1 hora){% endif %}</p>
+        <button class="btn" onclick="createVPS()">INICIAR VPS</button>
+        <div id="terminal" style="display: none; margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        async function createVPS() {
+            const btn = document.querySelector('.btn');
+            btn.disabled = true;
+            btn.innerHTML = '🚀 Iniciando VPS...';
+            
+            try {
+                const response = await fetch('/create-vps', {method: 'POST'});
+                const data = await response.json();
+                
+                if(data.status === 'success') {
+                    const iframe = document.createElement('iframe');
+                    iframe.src = data.terminal_url;
+                    iframe.style.width = '100%';
+                    iframe.style.height = '600px';
+                    iframe.style.border = '2px solid #30363d';
+                    iframe.style.borderRadius = '5px';
+                    document.getElementById('terminal').style.display = 'block';
+                    document.getElementById('terminal').appendChild(iframe);
+                    btn.style.display = 'none';
+                }
+            } catch(error) {
+                alert('Error: ' + error.message);
+                btn.disabled = false;
+                btn.innerHTML = 'INICIAR VPS';
+            }
+        }
+    </script>
+</body>
+</html>
