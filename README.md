@@ -6,6 +6,14 @@
 **¡Crea VPS temporales con Docker en 1 clic!**  
 *Para desarrolladores, pentesters y curiosos del DevOps.*
 
+## 📌 Descripción
+Docklify es una plataforma innovadora que permite crear VPS temporales con solo un clic, usando tecnología Docker. Perfecto para:
+
+- 🔍 Probar configuraciones rápidamente
+- 🧪 Experimentar con entornos Linux
+- 🚀 Aprender sobre contenedores y DevOps
+
+💻 Desarrollo web temporal
 ![](static/screenshot.png)
 
 ## ✨ Features
@@ -14,6 +22,9 @@
 - 🔐 Autenticación opcional
 - 🧹 Limpieza automática de contenedores
 - 🚫 Sin configuración compleja
+- 🔄 Persistencia de sesiones
+- 🛡️ Aislamiento seguro con Docker
+- 🎨 Interfaz moderna y responsive
 
 ## 🚀 Instalación
 ```bash
@@ -28,3 +39,15 @@ sudo usermod -aG docker $USER && newgrp docker
 
 # Iniciar
 python3 app.py
+```
+
+## 🤝 Contribuir
+¡Todas las contribuciones son bienvenidas! Algunas ideas:
+
+- ✅ Mejorar sistema de autenticación
+
+- ✨ Añadir panel de monitoreo
+
+- 🛡️ Implementar HTTPS
+
+- 📁 Sistema de archivos web
